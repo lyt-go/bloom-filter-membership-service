@@ -11,5 +11,5 @@ func Normalize(err error) error {
 	if err == nil {
 		return nil
 	}
-	return fmt.Errorf("downstream: %s", err)
+	return fmt.Errorf("downstream: %w", err)
 }

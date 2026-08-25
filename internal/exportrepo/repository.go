@@ -7,8 +7,9 @@ type Attempt struct {
 }
 
 func (r *Repository) Begin(value string) *Attempt {
-	r.Records = append(r.Records, value)
 	return &Attempt{repo: r, value: value}
 }
-func (a *Attempt) Commit()   {}
+func (a *Attempt) Commit() {
+	a.repo.Records = append(a.repo.Records, a.value)
+}
 func (a *Attempt) Rollback() {}
